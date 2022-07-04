@@ -4,7 +4,7 @@ async function handler(req, res) {
   if (req.method === 'POST') {
     const data = req.body;
 
-    const client = new MongoClient(NEXT_PUBLIC_MONGODB_URI);
+    const client = new MongoClient(process.env.NEXT_PUBLIC_MONGODB_URI);
 
     await client.connect();
 
