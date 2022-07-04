@@ -5,7 +5,6 @@ import Head from 'next/head'
 
 
 function AllMeetupsPage(props) {
-  console.log("meetups");
   return (
     <Fragment>
       <Head>

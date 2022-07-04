@@ -26,7 +26,6 @@ export async function getStaticPaths() {
   );
 
   const db = client.db();
-  console.log("db", db);
 
   const clientCollection = db.collection("meetups");
 
@@ -52,15 +51,12 @@ export async function getStaticProps(context) {
   );
 
   const db = client.db();
-  console.log("db", db);
 
   const clientCollection = db.collection("meetups");
 
   const selectedMeetup = await clientCollection.findOne({
     _id: ObjectId(meetupId),
   });
-
-  console.log(selectedMeetup);
 
   client.close();
 
