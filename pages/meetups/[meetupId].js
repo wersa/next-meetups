@@ -3,18 +3,18 @@ import Head from 'next/head'
 import { Fragment } from "react";
 import MeetupDetails from "../../components/meetups/MeetupDetails";
 
-function DetailsPage({ meetupData }) {
+function DetailsPage({ title, image, description, address }) {
   return (
     <Fragment>
     <Head>
-      <title>{meetupData.title}</title>
+      <title>{title}</title>
       <meta name='description' content="View meetup details!" />
     </Head>
     <MeetupDetails
-      title={meetupData.title}
-      image={meetupData.image}
-      description={meetupData.description}
-      address={meetupData.address}
+      title={title}
+      image={image}
+      description={description}
+      address={address}
     />
     </Fragment>
   );
@@ -62,13 +62,11 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      meetupData: {
-        is: selectedMeetup._id.toString(),
-        title: selectedMeetup.title,
-        image: selectedMeetup.image,
-        address: selectedMeetup.address,
-        description: selectedMeetup.description,
-      },
+      title: selectedMeetup.title,
+      image: selectedMeetup.image,
+      address: selectedMeetup.address,
+      description: selectedMeetup.description,
+      id: selectedMeetup._id.toString()
     },
   };
 }
